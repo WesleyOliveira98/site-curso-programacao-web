@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2YJ3MB044L"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-2YJ3MB044L');
+    </script>
+    
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Perfil</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="shortcut icon" href="../img/icon.png" type="image/x-icon">
+</head>
+
+<body>
+    <div class="header-app">
+        <div>
+            <a href="/home/" class="d-flex-center text-reset">
+                <img src="../img/icon.png" alt="icon">
+                <div class="text-white p-2 fs-5 fw-bold">Curso de Programação Web</div>
+            </a>
+        </div>
+        <div class="btn-group" role="group">
+            <button type="button" class="btn btn-outline-secondary dropdown-toggle text-white d-flex-center p-1"
+                data-bs-toggle="dropdown" aria-expanded="false">
+                <img src="../img/loading.gif" alt="icon" id="avatar" class="rounded">
+                <span id="nomeUsuario" class="p-2 w-100 text-capitalize">
+                    <div class="placeholder-glow">
+                        <span class="placeholder w-100"></span>
+                    </div>
+                </span>
+            </button>
+            <ul class="dropdown-menu">
+                <li>
+                    <a class="dropdown-item" href="#">
+                        <i class="bi bi-person-circle"></i>
+                        Meu Perfil
+                    </a>
+                </li>
+                <li>
+                    <a class="dropdown-item" href="#" onclick="logOut()">
+                        <i class="bi bi-box-arrow-right"></i>
+                        Sair
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="container text-white">
+        <div class="row">
+            <div class="infos-perfil">
+                <div>
+                    <img src="../img/loading.gif" alt="avatar" id="userPhoto">
+                </div>
+                <div>
+                    <div class="display-flex">
+                        <form id="formNome" class="oculto">
+                            <input type="text" id="inputName">
+                        </form>
+                        <strong id="userName" class="w-100">
+                            <div class="placeholder-glow">
+                                <span class="placeholder w-100"></span>
+                            </div>
+                        </strong>
+                        <i id="changeName" onclick="changeName()" class="bi bi-pencil-fill"></i>
+                        <div id="saveName" class="oculto">
+                            <div class="display-flex">
+                                <button type="button" onclick="saveName()" class="btn btn-success">
+                                    Salvar
+                                </button>
+                                <button type="button" onclick="cancelChange()" class="btn btn-danger">
+                                    Cancelar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <span id="userEmail" class="w-100">
+                        <div class="placeholder-glow">
+                            <span class="placeholder w-100 placeholder-sm"></span>
+                        </div>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <div class="row text-center mt-5">
+            <strong>Tempo Assistido</strong>
+            <h3 id="tempoAssistido"></h3>
+        </div>
+
+        <div class="row text-center mt-3">
+            <strong>Videos Assistidos</strong>
+            <h3 id="videosAssistidos"></h3>
+        </div>
+
+        <div class="row text-center mt-3">
+            <strong>Conquistas</strong>
+            <span id="nenhuma-conquista">Nenhuma conquista foi desbloqueada até o momento</span>
+            <div class="conquistas mt-3">
+                <div class="oculto" id="conquista1">
+                    <img src="../img/conquistas/1.png" alt="conquista1">
+                    <span>Assistiu a primeira aula</span>
+                </div>
+                <div class="oculto" id="conquista2">
+                    <img src="../img/conquistas/2.png" alt="conquista2">
+                    <span>Assistiu 10 aulas</span>
+                </div>
+                <div class="oculto" id="conquista3">
+                    <img src="../img/conquistas/3.png" alt="conquista3">
+                    <span>Assistiu 20 aulas</span>
+                </div>
+                <div class="oculto" id="conquista4">
+                    <img src="../img/conquistas/4.png" alt="conquista4">
+                    <span>Assistiu 30 aulas</span>
+                </div>
+                <div class="oculto" id="conquista5">
+                    <img src="../img/conquistas/5.png" alt="conquista5">
+                    <span>Finalizou o curso</span>
+                </div>
+            </div>
+        </div>
+
+        <hr class="text-white">
+
+        <h2 class="text-white text-center m-3">Aulas Assistidas</h2>
+
+        <div class="row aulas-assistidas"></div>
+
+        <div class="footer-app text-white d-flex-center mt-5 mb-2 text-center">
+            <span>
+                © 2022-2023 Curso e site desenvolvidos por 
+                <a href="https://github.com/WesleyOliveira98" target="_blank">Wesley Oliveira</a>
+            </span>
+        </div>
+    </div>
+
+    <div class="oculto" id="userUid"></div>
+
+    <div class="modal" id="modalLoading">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content bg-transparent">
+                <div class="text-center">
+                    <div class="spinner-border text-light" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="modalErro">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5">Erro!</h1>
+                </div>
+                <div class="modal-body">
+                </div>
+                <div class="modal-footer d-flex-center">
+                    <button type="button" class="btn btn-secondary" onclick="closeError()">
+                        Recarregar
+                        <i class="bi bi-arrow-clockwise"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="/__/firebase/8.7.0/firebase-app.js"></script>
+    <script src="/__/firebase/8.7.0/firebase-auth.js"></script>
+
+    <!-- Initialize Firebase -->
+    <script src="/__/firebase/init.js"></script>
+
+    <script src="../js/auth.js"></script>
+    <script src="../js/modal.js"></script>
+    <script src="../js/perfil.js"></script>
+    <script src="../js/aulas.js"></script>
+    <script src="../js/functions.js"></script>
+    <script src="../js/progresso.js"></script>
+
+    <script>
+        firebase.auth().onAuthStateChanged(user => {
+            if (user) {
+                //getProgresso(user.email,infosAula)
+                initHeader(user)
+                initPerfil(user)
+                getProgresso(user, exibirProgresso)
+            }
+            else window.location.href = '/'
+        });
+    </script>
+</body>
+
+</html>

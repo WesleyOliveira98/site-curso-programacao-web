@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- https://online-video-cutter.com/pt/
+https://imagem.online-convert.com/pt/converter/mp4-para-gif -->
+
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2YJ3MB044L"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-2YJ3MB044L');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introdução Programação Web</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://fonts.cdnfonts.com/css/alarm-clock">
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="shortcut icon" href="../img/icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+</head>
+
+<body>
+    <div class="header-app">
+        <div>
+            <a href="/home/" class="d-flex-center text-reset">
+                <img src="../img/icon.png" alt="icon">
+                <div class="text-white p-2 fs-5 fw-bold">Curso de Programação Web</div>
+            </a>
+        </div>
+        <div class="btn-group" role="group">
+            <button type="button" class="btn btn-outline-secondary dropdown-toggle text-white d-flex-center p-1" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                <img src="../img/loading.gif" alt="icon" id="avatar" class="rounded">
+                <span id="nomeUsuario" class="p-2 w-100 text-capitalize">
+                    <div class="placeholder-glow">
+                        <span class="placeholder w-100"></span>
+                    </div>
+                </span>
+            </button>
+            <ul class="dropdown-menu">
+                <li>
+                    <a class="dropdown-item" href="/meu-perfil/">
+                        <i class="bi bi-person-circle"></i>
+                        Meu Perfil
+                    </a>
+                </li>
+                <li>
+                    <a class="dropdown-item" href="#" onclick="logOut()">
+                        <i class="bi bi-box-arrow-right"></i>
+                        Sair
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="container text-center">
+        <h1 class="text-white m-5">Curso de Programação Web</h1>
+
+        <div class="mb-5">
+            <img class="icone" src="../img/icon.png" alt="icon">
+        </div>
+
+        <div class="row">
+            <div class="text-center">
+                <a id="proximaAula" class="btn btn-primary oculto animate__animated animate__fadeIn" href="/aulas/?aula=1">
+                    <span>Começar Agora</span>
+                    <i class="bi bi-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+
+        <div class="mt-5 mb-5 text-white oculto animate__animated animate__fadeIn">
+            <h4>Esse curso será desativado em:</h4>
+
+            <div class="mt-3 contagem-regressiva">
+                <div id="meses"></div>
+                <div id="dias"></div>
+                <div id="horas"></div>
+                <div id="minutos"></div>
+                <div id="segundos"></div>
+            </div>
+        </div>
+
+        <hr class="text-white">
+
+        <h2 class="text-white m-3">Aulas</h2>
+
+        <div class="row home-aulas"></div>
+
+        <div class="footer-app text-white d-flex-center mt-5 mb-2">
+            <span>
+                © 2022-2023 Curso e site desenvolvidos por 
+                <a href="https://github.com/WesleyOliveira98" target="_blank">Wesley Oliveira</a>
+            </span>
+        </div>
+    </div>
+
+    <div class="modal" id="modalLoading">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content bg-transparent">
+                <div class="text-center">
+                    <div class="spinner-border text-light" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <script src="https://momentjs.com/downloads/moment.min.js"></script>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="/__/firebase/8.7.0/firebase-app.js"></script>
+    <script src="/__/firebase/8.7.0/firebase-auth.js"></script>
+
+    <!-- Initialize Firebase -->
+    <script src="/__/firebase/init.js"></script>
+
+    <script src="../js/auth.js"></script>
+    <script src="../js/modal.js"></script>
+    <script src="../js/perfil.js"></script>
+    <script src="../js/aulas.js"></script>
+    <script src="../js/functions.js"></script>
+    <script src="../js/progresso.js"></script>
+    <script src="../js/contagem-regressiva.js"></script>
+
+    <script>
+        firebase.auth().onAuthStateChanged(user => {
+            if (user) {
+                getProgresso(user, homePreview)
+                initHeader(user)
+            }
+            else window.location.href = '/'
+        });
+    </script>
+
+</body>
+
+</html>

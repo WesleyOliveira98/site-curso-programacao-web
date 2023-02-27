@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2YJ3MB044L"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-2YJ3MB044L');
+    </script>
+    
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aulas</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="shortcut icon" href="../img/icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+</head>
+<body>
+    <div class="header-app">
+        <div>
+            <a href="/home/" class="d-flex-center text-reset">
+                <img src="../img/icon.png" alt="icon">
+                <div class="text-white p-2 fs-5 fw-bold">Curso de Programação Web</div>
+            </a>
+        </div>
+        <div class="btn-group" role="group">
+            <button type="button" class="btn btn-outline-secondary dropdown-toggle text-white d-flex-center p-1" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                <img src="../img/loading.gif" alt="icon" id="avatar" class="rounded">
+                <span id="nomeUsuario" class="p-2 w-100 text-capitalize">
+                    <div class="placeholder-glow">
+                        <span class="placeholder w-100"></span>
+                    </div>
+                </span>
+            </button>
+            <ul class="dropdown-menu">
+                <li>
+                    <a class="dropdown-item" href="/meu-perfil/">
+                        <i class="bi bi-person-circle"></i>
+                        Meu Perfil
+                    </a>
+                </li>
+                <li>
+                    <a class="dropdown-item" href="#" onclick="logOut()">
+                        <i class="bi bi-box-arrow-right"></i>
+                        Sair
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    
+    <aside class="indice-aulas p-2 animate__animated">
+    </aside>
+
+    <div class="colapse-indice" title="Exibir aulas">
+        <button type="button" class="btn btn-dark" onclick="colapseIndice()"><i class="bi bi-caret-down-square-fill"></i></button>
+    </div>
+
+    <div class="container container-aulas">
+        <div class="row">
+            <div class="display-flex p-4">
+                <div id="aulaAnterior">
+                    <a class="btn btn-primary">
+                        <i class="bi bi-arrow-left-circle"></i>
+                        Aula Anterior
+                    </a>
+                </div>
+                <div id="proximaAula">
+                    <a class="btn btn-success">
+                        Próxima Aula
+                        <i class="bi bi-arrow-right-circle"></i>
+                    </a>
+                </div>
+            </div>
+            
+        </div>
+        <div id="aula" class="row text-center">
+            <h1></h1>
+            <h4></h4>
+            <div class="p-4 video-aula"></div>
+            <h3 class="mt-4">Material da Aula</h3>
+            <div class="p-4">
+                <iframe class="rounded material" frameborder="0" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+            </div>
+            <h3 class="mt-4">Códigos da Aula</h3>
+            <div class="p-4" id="codigos"></div>
+        </div>
+
+        <div class="footer-app text-white d-flex-center mt-5 mb-2 text-center">
+            <span>
+                © 2022-2023 Curso e site desenvolvidos por 
+                <a href="https://github.com/WesleyOliveira98" target="_blank">Wesley Oliveira</a>
+            </span>
+        </div>
+    </div>
+
+    <div class="modal" id="modalLoading">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content bg-transparent">
+                <div class="text-center">
+                    <div class="spinner-border text-light" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="/__/firebase/8.7.0/firebase-app.js"></script>
+    <script src="/__/firebase/8.7.0/firebase-auth.js"></script> 
+
+    <!-- Initialize Firebase -->
+    <script src="/__/firebase/init.js?useEmulator=true"></script> 
+
+    <script src="../js/auth.js"></script>
+    <script src="../js/modal.js"></script>
+    <script src="../js/perfil.js"></script>
+    <script src="../js/aulas.js"></script>
+    <script src="../js/functions.js"></script>
+    <script src="../js/progresso.js"></script>
+
+    <script>
+        firebase.auth().onAuthStateChanged(user => {
+            if (user) {
+                getProgresso(user,infosAula)
+                initHeader(user)
+            }
+            else window.location.href = '/'
+        });
+    </script>
+</body>
+</html>

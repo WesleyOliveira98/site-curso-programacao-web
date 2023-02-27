@@ -1,0 +1,411 @@
+@font-face {
+    font-family: DS-Digital;
+    src: url('../src/ds-digital-bold.ttf')
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    background-color: #323236;
+}
+
+body {
+    padding-top: 4rem;
+}
+
+.oculto {
+    display: none;
+}
+
+.dim-16-9 {
+    width: 100%;
+    aspect-ratio: 16/9;
+}
+
+.material {
+    width: 100%;
+    aspect-ratio: 16/9.55;
+}
+
+.placeholder-glow {
+    min-width: 100px
+}
+
+.d-flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Barra de Rolagem */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+ 
+::-webkit-scrollbar-thumb {
+  background: #d2d2d2; 
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #c2c2c2; 
+}
+
+/* Home */
+
+.aula-preview {
+    padding: 15px;
+    border: solid 1px #4d4d4d;
+}
+
+.aula-preview a {
+    color: #ffffff;
+    text-decoration: none;
+    width: 100%;
+    display: flex;
+}
+
+.aula-preview a > img {
+    max-width: 20rem;
+}
+
+.aula-preview a > div {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    text-align: left;
+    padding: 1rem 1rem 0;
+}
+
+.aula-preview:hover {
+    cursor: pointer;
+}
+
+.icone {
+    width: 33%;
+    min-width: 10rem;
+    animation-name: rotation;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+}
+
+.aula-assistida-home {
+    border: solid 2px #3e9e3e;
+    opacity: .4;
+}
+
+.finalizou {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.finalizou:hover {
+    color: #ffffff;
+}
+
+.finalizou  img {
+    max-width: 10rem;
+}
+
+#proximaAula span {
+    font-size: 20px;
+}
+
+@keyframes rotation {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Header */
+.header-app {
+    background: #222222;
+    position: fixed;
+    top: 0;
+    height: 4rem;
+    width: 100vw;
+    z-index: 9999;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+}
+
+.header-app img {
+    width: 3rem;
+    aspect-ratio: 1/1;
+}
+
+/* Aulas */
+/* Barra Lateral */
+.indice-aulas {
+    background: #222222;
+    height: calc(100vh - 4rem);
+    width: 15vw;
+    min-width: 200px;
+    position: fixed;
+    left: 0;
+    top: 4rem;
+    border-right: 1px solid #cccccc;
+    border-top: 1px solid #cccccc;
+    color: #ffffff;
+    overflow-y: auto;
+    border-radius: 5px;
+}
+
+details > summary {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+}
+
+details[open] > summary {
+    list-style-type: none;
+}
+
+details > summary > div::before {
+    content: "ᐅ";
+}
+
+details[open] > summary > div::before {
+    content: "ᐁ";
+}
+
+.aula-atual > summary > div::before {
+    content: "ᐅ";
+    color: #2254f8;
+}
+
+.aula-assistida > summary > div::before {
+    content: "ᐅ";
+    color: #3e9e3e;
+}
+
+details > div {
+    border: 1px solid #ffffff;
+    margin-top: 5px;
+    padding: 5px;
+    border-radius: 0.2rem;
+}
+
+details div a, details div a:hover {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+details div a i {
+    margin-right: 5px;
+}
+
+summary > span {
+    width: 90%;
+    padding-left: 3px;
+}
+
+details {
+    border: 1px solid #a5b1c2;
+    border-radius: 0.2rem;
+    padding: 0.5rem;
+    margin-top: 5px;
+}
+
+.aula-atual {
+    border: 1px solid #3867d6;
+}
+
+.aula-atual-icon {
+    color: #3867d6;
+}
+
+.aula-assistida {
+    border: 1px solid #3e9e3e;
+}
+
+.aula-assistida-icon {
+    color: #3e9e3e;
+}
+
+.colapse-indice {
+    width: 100%;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    height: 1rem;
+}
+
+/* Container */
+.container-aulas {
+    padding-left: 15vw;
+    color: #ffffff;
+}
+
+.container-aulas .row {
+    width: 100%;
+}
+
+.display-flex {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+@media screen and (max-width: 1320px) {
+    .container-aulas {
+        padding-left: 200px;
+    }
+}
+
+/* Meu Perfil */
+.infos-perfil {
+    margin: 10vh 15% 10px;
+    width: 70%;
+    display: flex;
+}
+
+.infos-perfil > div {
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+}
+
+.infos-perfil > div > div {
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+#userName {
+    font-size: 32px;
+}
+
+#inputName {
+    font-size: 32px;
+    background-color: #323236;
+    border: none;
+    color: #ffffff;
+    font-weight: bold;
+    margin-right: 5px;
+}
+
+#changeName, #saveName {
+    margin-left: 5px;
+}
+
+#changeName:hover, #saveName:hover {
+    cursor: pointer
+}
+
+#userPhoto {
+    width: 10rem;
+    height: 10rem;
+    border-radius: 10rem;
+    padding: 0;
+}
+
+#saveName > div > button {
+    margin-right: 8px;
+}
+
+/* 404 */
+.container-404 {
+    height: calc(100vh - 4rem);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Contagem Regressiva */
+
+.contagem-regressiva {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.contagem-regressiva div {
+    background-color: #3d3d42;
+    min-width: 140px;
+    border-radius: 5px;
+    border: solid 1px #525257;
+    margin: 10px;
+}
+
+.contagem-regressiva h1 {
+    font-family: 'DS-Digital', sans-serif;
+    font-size: 120px;
+    font-weight: 1000;
+    margin: 0;
+    color: red;
+}
+
+.contagem-regressiva span {
+    font-size: 24px;
+    font-weight: bold;
+    color: red;
+    display: block;
+    transform: translateY(-20px);
+}
+
+.text-capitalize {
+    text-transform: capitalize;
+}
+
+/* Conquistas */
+.conquistas {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.conquistas div:not(.oculto) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 20%;
+    padding: 10px;
+}
+
+.conquistas img {
+    width: 100%;
+    aspect-ratio: 1/1;
+    max-width: 200px;
+}
+
+/* Rodapé */
+.footer-app {
+    width: 100%;
+    height: 4rem;
+}
+
+.footer-app a {
+    margin-left: 4px;
+}
+
+@media screen and (max-width: 768px){
+    .conquistas div:not(.oculto) { width: 100%; }
+    .aula-preview a { flex-direction: column;}
+    .aula-preview a > img { width: 100%; max-width: 100%; }
+    .aula-preview a > div { min-height: 150px; padding: 1rem 0 0; }
+    .infos-perfil { width: 100%; margin: 10vh 0 0; }
+    .indice-aulas { width: 100%; position: relative; top: 0; height: auto; border-right: none; }
+    .colapse-indice { display: flex; }
+    .container-aulas { padding: 0; max-width: 100%; }
+    .container-aulas .row { margin: 0; padding: 0;}
+    details:not(.aula-atual):not(.exibir-aula) {display: none;}
+}
+
+@media screen and (max-width: 575px){
+    .aulas-assistidas, .home-aulas { padding: 0 15px; }
+}
+
+@media screen and (max-width: 485px){
+    .header-app a div { display: none; }
+    .infos-perfil { width: 100%; margin: 10vh 0 0; flex-direction: column; }
+    .infos-perfil > div { margin: 0 20px; }
+}
