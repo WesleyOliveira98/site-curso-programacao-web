@@ -2,7 +2,7 @@ function getPerfil(user) {
     return new Promise((resolve,reject) => {
         fetch("https://api-curso-programacao-web.vercel.app/api/curso/perfil/"+user.uid, {
             headers: {
-                "Authorization": "Basic <ADMIN_AUTH_TOKEN>"
+                "Authorization": "Basic YWRtaW5fcm91dGU6YWRtaW4xMjM="
             }
         })
             .then(res => resolve(res))
@@ -14,7 +14,7 @@ function createPerfil(user) {
     return new Promise((resolve,reject) => {
         fetch("https://api-curso-programacao-web.vercel.app/api/curso/perfil", {
             headers: {
-                "Authorization": "Basic <ADMIN_AUTH_TOKEN>"
+                "Authorization": "Basic YWRtaW5fcm91dGU6YWRtaW4xMjM="
             },
             "method": "POST",
             "body": JSON.stringify({
@@ -34,7 +34,7 @@ function editPerfil(user) {
     return new Promise((resolve,reject) => {
         fetch("https://api-curso-programacao-web.vercel.app/api/curso/perfil/"+user.uid, {
             headers: {
-                "Authorization": "Basic <ADMIN_AUTH_TOKEN>"
+                "Authorization": "Basic YWRtaW5fcm91dGU6YWRtaW4xMjM="
             },
             "method": "PUT",
             "body": JSON.stringify(user)

@@ -35,6 +35,8 @@ function homePreview(user=null) {
             button.href = "/aulas/?" + aulas[proximaAula[0]][proximaAula[1]].url
         } 
 
+        if (proximaAula[0] === 0 && proximaAula[1] === 0) button.querySelector("span").textContent = "Começar Curso"
+
         if (!user.progresso.find(p => p.find(a => !a.finalizado))) {
             button.href = "/meu-perfil"
             button.classList.remove("btn")
@@ -185,7 +187,7 @@ async function infosAula(user=null) {
     if (aulaAtual.codigos && aulaAtual.codigos !== "") {
         fetch("https://api-curso-programacao-web.vercel.app/api/curso/codigos", {
             headers: {
-                "Authorization": "Basic <ADMIN_AUTH_TOKEN>"
+                "Authorization": "Basic YWRtaW5fcm91dGU6YWRtaW4xMjM="
             },
             "method": "POST",
             "body": JSON.stringify({

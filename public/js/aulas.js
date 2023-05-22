@@ -370,7 +370,7 @@ const aulas = [
             "poster": "/img/poster/aula17.png",
             "titulo": "Finalização do Projeto Final - Edição, Exclusão, Filtros e Gráficos - Parte 1",
             "material": "https://docs.google.com/presentation/d/e/2PACX-1vSUXgOf5KoFzZ-yeb0puDDWTDkWcOLkJP_REG_gXhpe2AeqFg7KDnfLStqKPlOaYsJh2buEzy8gd1o0/embed?start=false&loop=false&delayms=30000",
-            "codigos": '',
+            "codigos": "https://gist.github.com/WesleyOliveira98/c9b8aa2782d533c8fdd1fe1c9426fd44.json",
         },
         {
             "url": "aula=17&parte=2",
@@ -380,7 +380,7 @@ const aulas = [
             "poster": "/img/poster/aula17.png",
             "titulo": "Finalização do Projeto Final - Edição, Exclusão, Filtros e Gráficos - Parte 2",
             "material": "https://docs.google.com/presentation/d/e/2PACX-1vSUXgOf5KoFzZ-yeb0puDDWTDkWcOLkJP_REG_gXhpe2AeqFg7KDnfLStqKPlOaYsJh2buEzy8gd1o0/embed?start=false&loop=false&delayms=30000",
-            "codigos": '',
+            "codigos": "https://gist.github.com/WesleyOliveira98/c9b8aa2782d533c8fdd1fe1c9426fd44.json",
         }
     ],
     [

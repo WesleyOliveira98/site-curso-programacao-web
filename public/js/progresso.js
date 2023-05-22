@@ -31,7 +31,7 @@ function updateProgresso(user,indice,tempo,finalizado) {
     return new Promise((resolve, reject) => {
         fetch("https://api-curso-programacao-web.vercel.app/api/curso/progresso/"+user.uid, {
             headers: {
-                "Authorization": "Basic <ADMIN_AUTH_TOKEN>"
+                "Authorization": "Basic YWRtaW5fcm91dGU6YWRtaW4xMjM="
             },
             "method": "PUT",
             "body": JSON.stringify({

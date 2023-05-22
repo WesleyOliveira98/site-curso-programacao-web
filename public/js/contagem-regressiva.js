@@ -1,6 +1,6 @@
 setInterval(() => {
     let tempo = {
-        meses: moment("20230801", "YYYYMMDD").diff(moment(),'months'),
+        meses: moment("20230901", "YYYYMMDD").diff(moment(),'months'),
         dias: moment().endOf('month').diff(moment(),'days'),
         horas: moment().endOf('day').diff(moment(),'hours'),
         minutos: moment().endOf('hour').diff(moment(),'minutes'),
