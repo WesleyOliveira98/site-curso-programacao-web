@@ -49,8 +49,8 @@ function homePreview(user=null) {
                 </div>
             </div>`
 
-            document.querySelector(".contagem-regressiva").parentElement.classList.add("oculto")
-        } else document.querySelector(".contagem-regressiva").parentElement.classList.remove("oculto")
+           //document.querySelector(".contagem-regressiva").parentElement.classList.add("oculto")
+        } //else document.querySelector(".contagem-regressiva").parentElement.classList.remove("oculto")
 
         button.classList.remove("oculto")
     }

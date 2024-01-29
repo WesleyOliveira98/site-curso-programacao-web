@@ -113,6 +113,24 @@
         </div>
     </div>
 
+    <div class="modal" id="modalErro">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5">Erro!</h1>
+                </div>
+                <div class="modal-body">
+                </div>
+                <div class="modal-footer d-flex-center">
+                    <button type="button" class="btn btn-secondary" onclick="closeError()">
+                        Recarregar
+                        <i class="bi bi-arrow-clockwise"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
 
@@ -129,15 +147,27 @@
     <script src="../js/aulas.js"></script>
     <script src="../js/functions.js"></script>
     <script src="../js/progresso.js"></script>
+    <script src="../js/acesso.js"></script>
 
     <script>
         firebase.auth().onAuthStateChanged(user => {
-            if (user) {
-                getProgresso(user,infosAula)
-                initHeader(user)
-            }
+            // if (user) {
+            //     getProgresso(user,infosAula)
+            //     initHeader(user)
+            // }
+            if (user) aulasPage(user)
             else window.location.href = '/'
         });
+
+        async function aulasPage(user) {
+            initHeader(user)
+            const acesso = await getAcesso(user)
+            if (!acesso || !acesso.aprovado) {
+                window.location.href = "/acesso"
+                return
+            }
+            getProgresso(user,infosAula)
+        }
     </script>
 </body>
 </html>

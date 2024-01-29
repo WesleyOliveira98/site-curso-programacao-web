@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2YJ3MB044L"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-2YJ3MB044L');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solicitação de acesso</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="shortcut icon" href="../img/icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+</head>
+
+<body>
+    <div class="header-app">
+        <div>
+            <a href="/home/" class="d-flex-center text-reset">
+                <img src="../img/icon.png" alt="icon">
+                <div class="text-white p-2 fs-5 fw-bold">Curso de Programação Web</div>
+            </a>
+        </div>
+        <div class="btn-group" role="group">
+            <button type="button" class="btn btn-outline-secondary dropdown-toggle text-white d-flex-center p-1"
+                data-bs-toggle="dropdown" aria-expanded="false">
+                <img src="../img/loading.gif" alt="icon" id="avatar" class="rounded">
+                <span id="nomeUsuario" class="p-2 w-100 text-capitalize">
+                    <div class="placeholder-glow">
+                        <span class="placeholder w-100"></span>
+                    </div>
+                </span>
+            </button>
+            <ul class="dropdown-menu">
+                <li>
+                    <a class="dropdown-item" href="/meu-perfil/">
+                        <i class="bi bi-person-circle"></i>
+                        Meu Perfil
+                    </a>
+                </li>
+                <li>
+                    <a class="dropdown-item" href="#" onclick="logOut()">
+                        <i class="bi bi-box-arrow-right"></i>
+                        Sair
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="container text-white">
+        <div class="row text-center mt-3">
+            <h3>Garanta já o seu acesso ao curso!</h3>
+            <p>Siga os passos abaixo e receba acesso vitalicio ao curso.</p>
+        </div>
+
+        <div class="container shadow rounded mt-3 p-3 animate__animated animate__fadeIn formulario-solicitacao oculto">
+            <div class="row">
+                <h4>1° Passo</h4>
+                <p>
+                    É necessário seguir o  
+                    <a href="https://github.com/WesleyOliveira98" target="_blank">perfil do github</a> 
+                    do criador deste curso como forma de contribuir para o desenvolvimento desse e de próximos projetos.
+                </p>
+            </div>
+            <div class="row mt-3">
+                <h4>2° Passo</h4>
+                <p>
+                    É necessário dar uma estrela no  
+                    <a href="https://github.com/WesleyOliveira98/curso-programacao-web" target="_blank">
+                        repositório do github
+                    </a>
+                    que foi criado durante as aulas e servirá como codebase para futuros projetos em desenvolvimento web.
+                </p>
+            </div>
+            <div class="row mt-3">
+                <h4>3° Passo</h4>
+                <p>
+                    Preencha suas informações abaixo:
+                </p>
+            </div>
+            <form class="form" id="formulario_acesso">
+                <div class="row">
+                    <div class="col-md-6 mt-2 mb-2">
+                        <label for="nome" class="form-label">Nome</label>
+                        <input type="text" class="form-control" id="nome" placeholder="Digite o nome">
+                        <div class="invalid-feedback">
+                            O nome precisa ser preenchido
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mt-2 mb-2">
+                        <label for="sobrenome" class="form-label">Sobrenome</label>
+                        <input type="text" class="form-control" id="sobrenome" placeholder="Digite o sobrenome">
+                        <div class="invalid-feedback">
+                            O sobrenome precisa ser preenchido
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 mt-2 mb-2">
+                        <label for="email" class="form-label">E-mail</label>
+                        <input type="email" class="form-control" id="email" placeholder="Digite o email" required>
+                        <div class="invalid-feedback">
+                            O e-mail precisa ser preenchido
+                        </div>
+                    </div>
+                    <div class="col-md-2 mt-2 mb-2">
+                        <label for="data_nascimento" class="form-label">Data Nascimento</label>
+                        <input type="date" class="form-control" id="data_nascimento">
+                        <div class="invalid-feedback">
+                            A data de nascimento precisa ser preenchida
+                        </div>
+                    </div>
+                    <div class="col-md-1 mt-2 mb-2">
+                        <label for="ddd" class="form-label">DDD</label>
+                        <input type="text" class="form-control" id="ddd" placeholder="DDD" pattern="[0-9]{2}">
+                        <div class="invalid-feedback">
+                            O DDD precisa ser preenchido
+                        </div>
+                    </div>
+                    <div class="col-md-3 mt-2 mb-2">
+                        <label for="telefone" class="form-label">Telefone</label>
+                        <input type="number" class="form-control" id="telefone" placeholder="Telefone" pattern="[0-9]">
+                        <div class="invalid-feedback">
+                            O telefone precisa ser preenchido
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 mt-2 mb-2">
+                        <label for="github" class="form-label">Github</label>
+                        <input type="text" class="form-control" id="github" placeholder="Digite o username ou URL do Github">
+                        <div class="invalid-feedback">
+                            O username ou URL do github precisa ser preenchido
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 mt-2 mb-2">
+                        <label for="experiencia_logica" class="form-label">Experiência em Lógica</label>
+                        <select class="form-select" id="experiencia_logica">
+                            <option value="Escolha uma opção" selected disabled>Escolha uma opção</option>
+                            <option value="Nenhuma">Nenhuma</option>
+                            <option value="Iniciante">Iniciante</option>
+                            <option value="Intermediário">Intermediário</option>
+                            <option value="Avançado">Avançado</option>
+                        </select>
+                        <div class="invalid-feedback">
+                            A experiência em lógica precisa ser preenchida
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 mt-2 mb-2">
+                        <label for="experiencia_javascript" class="form-label">Experiência em Javascript</label>
+                        <select class="form-select" id="experiencia_javascript">
+                            <option value="Escolha uma opção" selected disabled>Escolha uma opção</option>
+                            <option value="Nenhuma">Nenhuma</option>
+                            <option value="Iniciante">Iniciante</option>
+                            <option value="Intermediário">Intermediário</option>
+                            <option value="Avançado">Avançado</option>
+                        </select>
+                        <div class="invalid-feedback">
+                            A experiência em javascript precisa ser preenchida
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12 mt-2 mb-2">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="confirmacao_repositorio">
+                            <label class="form-check-label text-white" for="confirmacao_repositorio">
+                                Confirma que deu uma estrela no repositório do github
+                            </label>
+                            <div class="invalid-feedback">
+                                É necessário confirmar que deu uma estrela no repositório
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12 mt-2 mb-2">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="confirmacao_perfil">
+                            <label class="form-check-label text-white" for="confirmacao_perfil">
+                                Confirma que seguiu o perfil do github
+                            </label>
+                            <div class="invalid-feedback">
+                                É necessário confirmar que seguiu o perfil
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row m-3">
+                    <div class="text-center">
+                        <button class="btn btn-primary" type="submit">
+                            Solicitar acesso
+
+                            <span class="spinner-border spinner-border-sm oculto" role="status"
+                                aria-hidden="true"></span>
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="container shadow rounded mt-3 p-3 text-center animate__animated animate__fadeIn solicitacao-enviada oculto">
+            <h4>
+                Solicitação enviada com sucesso!
+            </h4>
+            <p>
+                Sua solicitação está passando por avaliação e em até 48 horas, você receberá a confirmação em seu e-mail.
+            </p>
+        </div>
+
+        <div class="footer-app text-white d-flex-center mt-5 mb-2 text-center">
+            <span>
+                © 2022-2023 Curso e site desenvolvidos por
+                <a href="https://github.com/WesleyOliveira98" target="_blank">Wesley Oliveira</a>
+            </span>
+        </div>
+    </div>
+
+    <div class="modal" id="modalLoading">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content bg-transparent">
+                <div class="text-center">
+                    <div class="spinner-border text-light" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="modalErro">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5">Erro!</h1>
+                </div>
+                <div class="modal-body">
+                </div>
+                <div class="modal-footer d-flex-center">
+                    <button type="button" class="btn btn-secondary" onclick="closeError()">
+                        Recarregar
+                        <i class="bi bi-arrow-clockwise"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="/__/firebase/8.7.0/firebase-app.js"></script>
+    <script src="/__/firebase/8.7.0/firebase-auth.js"></script>
+
+    <!-- Initialize Firebase -->
+    <script src="/__/firebase/init.js?useEmulator=true"></script>
+
+    <script src="../js/auth.js"></script>
+    <script src="../js/modal.js"></script>
+    <script src="../js/perfil.js"></script>
+    <script src="../js/aulas.js"></script>
+    <script src="../js/functions.js"></script>
+    <script src="../js/progresso.js"></script>
+    <script src="../js/acesso.js"></script>
+
+    <script>
+        firebase.auth().onAuthStateChanged(user => {
+            // if (user) {
+            //     initHeader(user)
+            //     initPerfil(user)
+            //     getProgresso(user, exibirProgresso)
+            // }
+            if (user) acessoPage(user)
+            else window.location.href = '/'
+        });
+
+        async function acessoPage(user) {
+            initHeader(user)
+            const acesso = await getAcesso(user)
+            console.log({acesso})
+            if (!acesso) {
+                document.querySelector(".formulario-solicitacao").classList.remove("oculto")
+                document.querySelector(".solicitacao-enviada").classList.add("oculto")
+            } 
+            else if (acesso.aprovado) window.location.href = '/home'
+            else if (!acesso.aprovado) {
+                document.querySelector(".formulario-solicitacao").classList.add("oculto")
+                document.querySelector(".solicitacao-enviada").classList.remove("oculto")
+            }
+            getProgresso(user,() => {})
+            modalLoading.hide()
+            window.localStorage.setItem('cpw-user-uid',user.uid)
+        }
+    </script>
+</body>
+
+</html>

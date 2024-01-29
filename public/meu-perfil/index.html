@@ -195,17 +195,29 @@
     <script src="../js/aulas.js"></script>
     <script src="../js/functions.js"></script>
     <script src="../js/progresso.js"></script>
+    <script src="../js/acesso.js"></script>
 
     <script>
         firebase.auth().onAuthStateChanged(user => {
-            if (user) {
-                //getProgresso(user.email,infosAula)
-                initHeader(user)
-                initPerfil(user)
-                getProgresso(user, exibirProgresso)
-            }
+            // if (user) {
+            //     initHeader(user)
+            //     initPerfil(user)
+            //     getProgresso(user, exibirProgresso)
+            // }
+            if (user) perfilPage(user)
             else window.location.href = '/'
         });
+
+        async function perfilPage(user) {
+            initHeader(user)
+            const acesso = await getAcesso(user)
+            if (!acesso || !acesso.aprovado) {
+                window.location.href = "/acesso"
+                return
+            }
+            initPerfil(user)
+            getProgresso(user,exibirProgresso)
+        }
     </script>
 </body>
 

@@ -387,6 +387,11 @@ details {
     margin-left: 4px;
 }
 
+/* Formulário acesso */
+.formulario-solicitacao, .solicitacao-enviada {
+    background: #434343;
+}
+
 @media screen and (max-width: 768px){
     .conquistas div:not(.oculto) { width: 100%; }
     .aula-preview a { flex-direction: column;}
