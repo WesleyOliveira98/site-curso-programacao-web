@@ -300,12 +300,19 @@
         async function acessoPage(user) {
             initHeader(user)
             const acesso = await getAcesso(user)
+            const urlParams = new URLSearchParams(window.location.search);
+            const isEdit = urlParams.get('edit');
             console.log({acesso})
             if (!acesso) {
                 document.querySelector(".formulario-solicitacao").classList.remove("oculto")
                 document.querySelector(".solicitacao-enviada").classList.add("oculto")
             } 
             else if (acesso.aprovado) window.location.href = '/home'
+            else if (isEdit === "true") {
+                editarSolicitacao(acesso)
+                document.querySelector(".formulario-solicitacao").classList.remove("oculto")
+                document.querySelector(".solicitacao-enviada").classList.add("oculto")
+            } 
             else if (!acesso.aprovado) {
                 document.querySelector(".formulario-solicitacao").classList.add("oculto")
                 document.querySelector(".solicitacao-enviada").classList.remove("oculto")

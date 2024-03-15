@@ -134,3 +134,22 @@ async function enviarSolicitacao(response) {
         modalError("Ocorreu um erro ao enviar sua solicitação: " + error.message)
     }
 }
+
+function editarSolicitacao(acesso) {
+    const keys = Object.keys(acesso)
+
+    keys.forEach(key => {
+        let field = document.getElementById(key)
+        if (!field) return
+
+        if (key === "data_nascimento") {
+            let dateAmerican = acesso[key].split("/").reverse().join("-")
+            field.value = dateAmerican
+        }
+        else if (key === "confirmacao_perfil" || key === "confirmacao_repositorio") {
+            if (acesso[key] === true) field.checked = true
+            else field.checked = false
+        }
+        else field.value = acesso[key]
+    })
+}
